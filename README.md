@@ -1,5 +1,9 @@
-Chwytak komunikuje się z komputerem korzystając z portu szeregowego na mostku FT232H USB<->USART - 460800, 8, N, 1. Do komunikacji z chwytakiem służy klasa LiderHand. Przechowuje ona aktualny stan odebrany z chwytaka oraz można w niej ustawić wartości do wysłania. Sama klasa nie implementuje fizycznej komunikacji portu szeregowego, pozwala jedynie na interpretację ramek przychodzących, oraz przygotowuje ramki wychodzące. Po stronie użytkownika leży implementacja obsługi portu szeregowego, odbieranie i wysyłanie gotowych ramek. Każda ramka przychodząca zakończona jest znakiem końca linii '\n', więc np. w przypadku linuxa można robić getline na urządzeniu blokowym i przekazywać odebrane dane do klasy LiderHand. Klasa rozpakowuje ramkę, dekoduje i wypełnia wszelkie pola, do których mamy zestaw "geterów". Mamy też zestaw "seterów" do ustawiania pól wyjściowych. Następnie korzystamy z którejś w funkcji "PrepareData...", które zwracają std::string który musimy przekazać do urządzenia blokowego/portu szeregowego.
+License
 
-Chwytak ma 3 podstawowe tryby pracy: IDLE - nic nie robi, wszystkie napędy są w hamulcu lub "na luzie"; INTERNAL - korzystamy z wbudowanego regulatora pozycyjnego, zadajemy tylko pozycję napędów; EXTERNAL - sterujemy każdym napędem indywidualnie, musimy zaimplementować regulator nadrzędy, mamy dostęp do prądów i pozycji z enkoderów, zadajemy PWM i kierunek. Jest też parę komend dodatkowych: włączenie/wyłączenie wysyłania aktualnych danych przez chwytak (domyślnie na starcie wyłączone), uruchomienie kalibracji, komenda kasowania błędów - zestaw komend może się jeszcze rozszerzyć.
+Creative Commons License
 
-Przygotowałem też przykładową aplikację LiderHandCommTest, jako use case biblioteki LiderHand. Program testowy napisany jest w Qt, aby łatwo było skompilować program na dowolnym systemie. Sama biblioteka LiderHand jest napisana na kontenerach std, więc użycie Qt NIE JEST konieczne, tak było mi najłatwiej przygotować program pokazowy. 
+Unless stated otherwise, PUT-Hand project elements are licensed under a Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0). Accompanying firmware and software are licensed under a MIT License.
+
+When using PUT-Hand design files, firmware, software, or utilising project as a whole please cite:
+
+TBD

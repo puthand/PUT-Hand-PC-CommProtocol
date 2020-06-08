@@ -1,0 +1,6 @@
+INCLUDEPATH += $$PWD
+CURRENT_DIR = $$PWD
+
+SOURCES += $$CURRENT_DIR/liderhand.cpp
+
+HEADERS += $$CURRENT_DIR/liderhand.h
